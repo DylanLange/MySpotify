@@ -1,0 +1,35 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="padding_4dp">4dp</dimen>
+    <dimen name="padding_8dp">8dp</dimen>
+    <dimen name="padding_12dp">12dp</dimen>
+    <dimen name="padding_16dp">16dp</dimen>
+    <dimen name="padding_20dp">20dp</dimen>
+    <dimen name="padding_24dp">24dp</dimen>
+    <dimen name="padding_28dp">28dp</dimen>
+    <dimen name="padding_32dp">32dp</dimen>
+    <dimen name="padding_36dp">36dp</dimen>
+    <dimen name="padding_40dp">40dp</dimen>
+    <dimen name="padding_44dp">44dp</dimen>
+    <dimen name="padding_52dp">52dp</dimen>
+    <dimen name="padding_64dp">64dp</dimen>
+    <dimen name="padding_72dp">72dp</dimen>
+
+    <dimen name="text_4sp">4sp</dimen>
+    <dimen name="text_8sp">8sp</dimen>
+    <dimen name="text_12sp">12sp</dimen>
+    <dimen name="text_16sp">16sp</dimen>
+    <dimen name="text_20sp">20sp</dimen>
+    <dimen name="text_24sp">24sp</dimen>
+    <dimen name="text_28sp">28sp</dimen>
+    <dimen name="text_32sp">32sp</dimen>
+    <dimen name="text_36sp">36sp</dimen>
+    <dimen name="text_40sp">40sp</dimen>
+    <dimen name="text_44sp">44sp</dimen>
+    <dimen name="text_52sp">52sp</dimen>
+    <dimen name="text_64sp">64sp</dimen>
+    <dimen name="text_72sp">72sp</dimen>
+</resources>

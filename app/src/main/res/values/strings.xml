@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">SpotifyAnalysisV2</string>
+    <string name="login_btn">Log in</string>
+</resources>
