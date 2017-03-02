@@ -1,10 +1,10 @@
-package com.dylange.spotifyanalysisv2.main
+package com.dylange.myspotify.main
 
 import android.content.SharedPreferences
 import android.os.Bundle
-import com.dylange.spotifyanalysisv2.R
-import com.dylange.spotifyanalysisv2.app.SpotifyAnalysisApplication
-import com.dylange.spotifyanalysisv2.base.BaseActivity
+import com.dylange.myspotify.R
+import com.dylange.myspotify.app.SpotifyAnalysisApplication
+import com.dylange.myspotify.base.BaseActivity
 import com.mcxiaoke.koi.ext.onClick
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject

@@ -1,6 +1,6 @@
-package com.dylange.spotifyanalysisv2.data.source
+package com.dylange.myspotify.data.source
 
-import com.dylange.spotifyanalysisv2.data.models.*
+import com.dylange.myspotify.data.models.*
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -12,7 +12,7 @@ import javax.inject.Inject
  */
 class Api : ApiContract {
 
-    val mRemote: Remote;
+    val mRemote: Remote
 
     @Inject
     constructor(remote: Remote){

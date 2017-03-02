@@ -1,4 +1,4 @@
-package com.dylange.spotifyanalysisv2.app
+package com.dylange.myspotify.app
 
 import javax.inject.Scope
 

@@ -1,6 +1,6 @@
-package com.dylange.spotifyanalysisv2.main
+package com.dylange.myspotify.main
 
-import com.dylange.spotifyanalysisv2.app.ActivityScope
+import com.dylange.myspotify.app.ActivityScope
 import dagger.Module
 import dagger.Provides
 import dagger.Subcomponent

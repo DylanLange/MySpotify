@@ -1,14 +1,14 @@
-package com.dylange.spotifyanalysisv2.app
+package com.dylange.myspotify.app
 
 import android.content.SharedPreferences
 import android.preference.PreferenceManager
-import com.dylange.spotifyanalysisv2.BuildConfig
-import com.dylange.spotifyanalysisv2.data.source.Api
-import com.dylange.spotifyanalysisv2.data.source.Remote
-import com.dylange.spotifyanalysisv2.login.LoginComponent
-import com.dylange.spotifyanalysisv2.login.LoginModule
-import com.dylange.spotifyanalysisv2.main.MainComponent
-import com.dylange.spotifyanalysisv2.main.MainModule
+import com.dylange.myspotify.BuildConfig
+import com.dylange.myspotify.data.source.Api
+import com.dylange.myspotify.data.source.Remote
+import com.dylange.myspotify.login.LoginComponent
+import com.dylange.myspotify.login.LoginModule
+import com.dylange.myspotify.main.MainComponent
+import com.dylange.myspotify.main.MainModule
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import com.serjltt.moshi.adapters.WrappedJsonAdapter
 import com.squareup.moshi.Moshi

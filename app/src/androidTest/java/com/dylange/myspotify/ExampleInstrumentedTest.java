@@ -1,4 +1,4 @@
-package com.dylange.spotifyanalysisv2;
+package com.dylange.myspotify;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

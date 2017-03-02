@@ -1,7 +1,7 @@
-package com.dylange.spotifyanalysisv2.login
+package com.dylange.myspotify.login
 
-import com.dylange.spotifyanalysisv2.app.ActivityScope
-import com.dylange.spotifyanalysisv2.main.LoginContract
+import com.dylange.myspotify.app.ActivityScope
+import com.dylange.myspotify.main.LoginContract
 import dagger.Module
 import dagger.Provides
 import dagger.Subcomponent

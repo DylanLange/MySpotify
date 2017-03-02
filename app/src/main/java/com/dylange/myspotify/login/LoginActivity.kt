@@ -1,14 +1,14 @@
-package com.dylange.spotifyanalysisv2.login
+package com.dylange.myspotify.login
 
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import com.dylange.spotifyanalysisv2.BuildConfig
-import com.dylange.spotifyanalysisv2.R
-import com.dylange.spotifyanalysisv2.app.SpotifyAnalysisApplication
-import com.dylange.spotifyanalysisv2.base.BaseActivity
-import com.dylange.spotifyanalysisv2.main.LoginContract
-import com.dylange.spotifyanalysisv2.main.MainActivity
+import com.dylange.myspotify.BuildConfig
+import com.dylange.myspotify.R
+import com.dylange.myspotify.app.SpotifyAnalysisApplication
+import com.dylange.myspotify.base.BaseActivity
+import com.dylange.myspotify.main.LoginContract
+import com.dylange.myspotify.main.MainActivity
 import com.mcxiaoke.koi.ext.onClick
 import com.mcxiaoke.koi.ext.startActivity
 import com.spotify.sdk.android.authentication.AuthenticationClient

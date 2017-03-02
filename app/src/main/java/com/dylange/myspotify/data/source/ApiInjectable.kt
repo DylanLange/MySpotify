@@ -1,9 +1,9 @@
-package com.dylange.spotifyanalysisv2.data.source
+package com.dylange.myspotify.data.source
 
-import com.dylange.spotifyanalysisv2.BuildConfig
-import com.dylange.spotifyanalysisv2.app.ActivityScope
-import com.dylange.spotifyanalysisv2.app.AppScope
-import com.dylange.spotifyanalysisv2.app.SpotifyAnalysisApplication
+import com.dylange.myspotify.BuildConfig
+import com.dylange.myspotify.app.ActivityScope
+import com.dylange.myspotify.app.AppScope
+import com.dylange.myspotify.app.SpotifyAnalysisApplication
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import com.serjltt.moshi.adapters.WrappedJsonAdapter
 import com.squareup.moshi.Moshi

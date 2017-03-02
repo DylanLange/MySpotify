@@ -1,6 +1,6 @@
-package com.dylange.spotifyanalysisv2.data.source
+package com.dylange.myspotify.data.source
 
-import com.dylange.spotifyanalysisv2.data.models.*
+import com.dylange.myspotify.data.models.*
 import com.serjltt.moshi.adapters.Wrapped
 import io.reactivex.Single
 import retrofit2.Response

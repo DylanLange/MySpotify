@@ -1,4 +1,4 @@
-package com.dylange.spotifyanalysisv2.base
+package com.dylange.myspotify.base
 
 /**
  * Created by Dylan on 28-Feb-17.

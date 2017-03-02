@@ -1,4 +1,4 @@
-package com.dylange.spotifyanalysisv2.data.models
+package com.dylange.myspotify.data.models
 
 import android.database.Cursor
 import com.squareup.moshi.Json

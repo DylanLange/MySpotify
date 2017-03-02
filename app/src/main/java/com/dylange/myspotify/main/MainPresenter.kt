@@ -1,10 +1,10 @@
-package com.dylange.spotifyanalysisv2.main
+package com.dylange.myspotify.main
 
 import android.content.SharedPreferences
 import android.util.Log
-import com.dylange.spotifyanalysisv2.base.BaseActivity.Companion.AUTH_TOKEN_PREFS_KEY
-import com.dylange.spotifyanalysisv2.data.models.SavedAlbum
-import com.dylange.spotifyanalysisv2.data.source.Api
+import com.dylange.myspotify.base.BaseActivity.Companion.AUTH_TOKEN_PREFS_KEY
+import com.dylange.myspotify.data.models.SavedAlbum
+import com.dylange.myspotify.data.source.Api
 import javax.inject.Inject
 
 /**

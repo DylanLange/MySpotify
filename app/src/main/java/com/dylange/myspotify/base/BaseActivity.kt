@@ -1,4 +1,4 @@
-package com.dylange.spotifyanalysisv2.base
+package com.dylange.myspotify.base
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity

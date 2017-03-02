@@ -1,6 +1,6 @@
-package com.dylange.spotifyanalysisv2.main
+package com.dylange.myspotify.main
 
-import com.dylange.spotifyanalysisv2.base.BaseContract
+import com.dylange.myspotify.base.BaseContract
 
 /**
  * Created by Dylan on 28-Feb-17.
