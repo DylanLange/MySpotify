@@ -14,4 +14,10 @@
     <color name="green_70">#b22ebd59</color>
     <color name="green_50">#7f2ebd59</color>
 
+    <color name="danceability_fab">#64dd17</color>
+    <color name="energy_fab">#ffea00</color>
+    <color name="speechiness_fab">#1565c0</color>
+    <color name="tempo_fab">#ef6c00</color>
+    <color name="instrumentalness_fab">#6200ea</color>
+
 </resources>

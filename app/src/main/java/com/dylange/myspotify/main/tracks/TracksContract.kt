@@ -7,9 +7,7 @@ import com.dylange.myspotify.base.BaseContract
  */
 interface TracksContract {
 	interface View: BaseContract.BaseView {
-
 	}
 	interface Presenter: BaseContract.BasePresenter {
-
 	}
 }

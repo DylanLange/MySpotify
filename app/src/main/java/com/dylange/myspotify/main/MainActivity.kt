@@ -17,6 +17,9 @@ import com.dylange.myspotify.main.albums.AlbumsFragment
 import com.dylange.myspotify.main.artists.ArtistsFragment
 import com.dylange.myspotify.main.playlists.PlaylistsFragment
 import com.dylange.myspotify.main.tracks.TracksFragment
+import com.imangazaliev.circlemenu.CircleMenu
+import com.imangazaliev.circlemenu.CircleMenuButton
+import com.mcxiaoke.koi.ext.onClick
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
@@ -37,6 +40,25 @@ class MainActivity: BaseActivity(), MainContract.View {
 
         view_pager.adapter = ViewPagerAdapter(supportFragmentManager)
         setSupportActionBar(toolbar)
+        
+        fab.onClick {
+            mPresenter.fabClicked()
+        }
+        circle_menu.setStateUpdateListener(object: CircleMenu.OnStateUpdateListener {
+            override fun onMenuCollapsed() {
+                mPresenter.circleMenuClicked()
+            }
+
+            override fun onMenuExpanded() {
+
+            }
+
+        })
+        circle_menu.setOnItemClickListener(object: CircleMenu.OnItemClickListener {
+            override fun onItemClick(menuButton: CircleMenuButton?) {
+                mPresenter.circleMenuItemClicked(menuButton)
+            }
+        })
     }
 
     override fun setupActivityComponent() {

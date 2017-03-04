@@ -7,6 +7,10 @@ import android.view.ViewGroup
 import com.dylange.myspotify.R
 import com.dylange.myspotify.app.SpotifyAnalysisApplication
 import com.dylange.myspotify.base.BaseFragment
+import com.imangazaliev.circlemenu.CircleMenu
+import com.imangazaliev.circlemenu.CircleMenuButton
+import com.mcxiaoke.koi.ext.onClick
+import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
 /**
@@ -23,7 +27,6 @@ class TracksFragment : BaseFragment(), TracksContract.View {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
     }
 
     override fun onResume() {

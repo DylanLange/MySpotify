@@ -5,6 +5,7 @@ import android.util.Log
 import com.dylange.myspotify.base.BaseActivity.Companion.AUTH_TOKEN_PREFS_KEY
 import com.dylange.myspotify.data.models.SavedAlbum
 import com.dylange.myspotify.data.source.Api
+import com.imangazaliev.circlemenu.CircleMenuButton
 import javax.inject.Inject
 
 /**
@@ -56,6 +57,21 @@ class MainPresenter: MainContract.Presenter {
             response ->
             Log.d("DYLAN", response.toString())
         }
+    }
+
+    override fun fabClicked() {
+        mView.fadeInCircleMenu()
+        mView.hideFab()
+    }
+
+    override fun circleMenuItemClicked(menuButton: CircleMenuButton?) {
+        mView.fadeOutCircleMenu()
+        mView.showFab()
+    }
+
+    override fun circleMenuClicked() {
+        mView.fadeOutCircleMenu()
+        mView.showFab()
     }
 
 }
