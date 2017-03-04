@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">SpotifyAnalysisV2</string>
     <string name="login_btn">Log in</string>
+
+    <string name="fragment_title_tracks">Tracks</string>
+    <string name="fragment_title_albums">Albums</string>
+    <string name="fragment_title_artists">Artists</string>
+    <string name="fragment_title_playlists">Playlists</string>
 </resources>

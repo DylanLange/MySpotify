@@ -24,7 +24,7 @@ class MainPresenter: MainContract.Presenter {
     }
 
     override fun start() {
-
+        mView.setupTabs()
     }
 
     override fun btnClicked() {

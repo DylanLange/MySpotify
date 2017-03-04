@@ -9,6 +9,14 @@ import com.dylange.myspotify.login.LoginComponent
 import com.dylange.myspotify.login.LoginModule
 import com.dylange.myspotify.main.MainComponent
 import com.dylange.myspotify.main.MainModule
+import com.dylange.myspotify.main.albums.AlbumsComponent
+import com.dylange.myspotify.main.albums.AlbumsModule
+import com.dylange.myspotify.main.artists.ArtistsComponent
+import com.dylange.myspotify.main.artists.ArtistsModule
+import com.dylange.myspotify.main.playlists.PlaylistsComponent
+import com.dylange.myspotify.main.playlists.PlaylistsModule
+import com.dylange.myspotify.main.tracks.TracksComponent
+import com.dylange.myspotify.main.tracks.TracksModule
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import com.serjltt.moshi.adapters.WrappedJsonAdapter
 import com.squareup.moshi.Moshi
@@ -109,5 +117,9 @@ interface ApplicationComponent {
 
     fun plus(mainModule: MainModule): MainComponent
     fun plus(loginModule: LoginModule): LoginComponent
+    fun plus(tracksModule: TracksModule): TracksComponent
+    fun plus(playlistsModule: PlaylistsModule): PlaylistsComponent
+    fun plus(artistsModule: ArtistsModule): ArtistsComponent
+    fun plus(albumsModule: AlbumsModule): AlbumsComponent
 
 }

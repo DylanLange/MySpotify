@@ -5,7 +5,7 @@ package com.dylange.myspotify.base
  */
 interface BaseContract {
     interface BaseView {
-
+        fun showAlertDialog(title : String)
     }
     interface BasePresenter {
         fun start()

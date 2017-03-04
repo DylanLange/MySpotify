@@ -7,7 +7,7 @@ import com.dylange.myspotify.base.BaseContract
  */
 interface MainContract {
     interface View : BaseContract.BaseView {
-
+        fun setupTabs()
     }
     interface Presenter: BaseContract.BasePresenter {
         fun btnClicked()

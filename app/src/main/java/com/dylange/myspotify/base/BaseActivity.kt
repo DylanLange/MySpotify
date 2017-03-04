@@ -1,7 +1,10 @@
 package com.dylange.myspotify.base
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import com.mcxiaoke.koi.ext.getApp
 
 /**
  * Created by Dylan on 28-Feb-17.
@@ -24,6 +27,17 @@ abstract class BaseActivity: AppCompatActivity(), BaseContract.BaseView {
     override fun onDestroy() {
         //if(mPlayer != null) mPlayer.destroy()
         super.onDestroy()
+    }
+
+    override fun showAlertDialog(msg : String){
+        var builder : AlertDialog.Builder = AlertDialog.Builder(getApp())
+        builder.setMessage(msg)
+                .setPositiveButton("Ok",
+                        DialogInterface.OnClickListener {
+                            dialog, i ->
+                            dialog.dismiss()
+                        })
+        builder.create().show()
     }
 
 }
