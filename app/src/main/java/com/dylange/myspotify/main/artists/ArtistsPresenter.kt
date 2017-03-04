@@ -1,5 +1,6 @@
 package com.dylange.myspotify.main.artists
 
+import com.dylange.myspotify.data.source.Api
 import javax.inject.Inject
 
 /**
@@ -8,9 +9,11 @@ import javax.inject.Inject
 class ArtistsPresenter : ArtistsContract.Presenter {
 
     var mView : ArtistsContract.View
+    var mRepo: Api
 
-    @Inject constructor(view : ArtistsContract.View){
+    @Inject constructor(view : ArtistsContract.View, repo: Api){
         mView = view
+        mRepo = repo
     }
 
     override fun start(){
