@@ -57,6 +57,25 @@ data class Cursor(
 )
 
 /**
+ * play history object
+ */
+data class PlayHistory(
+                                val track: TrackSimple,
+        @Json(name="played_at") val playedAt: String,
+                                val context: SpotifyContext
+)
+
+/**
+ * context object
+ */
+data class SpotifyContext(
+                                    val type: String,
+                                    val href: String,
+        @Json(name="external_urls") val externalUrls: ExternalUrl,
+                                    val uri: String
+)
+
+/**
  * copyright object
  */
 data class Copyright(

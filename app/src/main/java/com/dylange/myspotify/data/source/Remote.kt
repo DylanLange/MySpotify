@@ -158,4 +158,8 @@ interface Remote {
                         @Query("offset") offset: Int?,
                         @Query("time_range") timeRange: String?): Single<Paging<Track>>//time_range can be: long_term, medium_term, short_term -> several years, last 6 months, last month
 
+    @GET("/v1/me/player/recently-played")
+    fun getRecentlyPlayed(@Header("Authorization") accessToken: String,
+                          @Query("limit") limit: Int?): Single<CursorPaging<PlayHistory>>
+
 }

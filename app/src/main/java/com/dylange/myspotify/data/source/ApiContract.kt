@@ -117,4 +117,7 @@ interface ApiContract {
                         offset: Int?,
                         timeRange: String?): Single<Paging<Track>>
 
+    fun getRecentlyPlayed(accessToken: String,
+                          limit: Int?): Single<CursorPaging<PlayHistory>>
+
 }

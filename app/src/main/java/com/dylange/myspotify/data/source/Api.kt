@@ -123,6 +123,10 @@ class Api : ApiContract {
         return createDefaultSubscription(mRemote.getMyTopTracks(accessToken, limit, offset, timeRange))
     }
 
+    override fun getRecentlyPlayed(accessToken: String, limit: Int?): Single<CursorPaging<PlayHistory>> {
+        return createDefaultSubscription(mRemote.getRecentlyPlayed(accessToken, limit))
+    }
+
     fun <T> createDefaultSubscription(thing : Single<T>) : Single<T> = thing
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
