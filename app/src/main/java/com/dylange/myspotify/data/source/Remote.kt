@@ -99,12 +99,19 @@ interface Remote {
                        @Query("limit") limit: Int?,
                        @Query("offset") offset: Int?): Single<Paging<AlbumSimple>>
 
+    @GET("/v1/me/tracks")
+    fun getMyTracks(@Header("Authorization") accessToken: String,
+                    @Query("limit") limit: Int?,
+                    @Query("offset") offset: Int?): Single<Paging<SavedTrack>>
+
     @PUT("/v1/me/albums")
     fun saveAlbums(@Header("Authorization") accessToken: String,
                    @Query("ids") ids: String): Single<Response<Void>>
 
     @GET("/v1/me/albums")
-    fun getMyAlbums(@Header("Authorization") accessToken: String): Single<Paging<SavedAlbum>>
+    fun getMyAlbums(@Header("Authorization") accessToken: String,
+                    @Query("limit") limit: Int?,
+                    @Query("offset") offset: Int?): Single<Paging<SavedAlbum>>
 
     @DELETE("/v1/me/albums")
     fun deleteMyAlbums(@Header("Authorization") accessToken: String,

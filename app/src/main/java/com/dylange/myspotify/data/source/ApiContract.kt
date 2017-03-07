@@ -69,55 +69,45 @@ interface ApiContract {
     // auth required
     //-------------------------------------------------------------------
 
-    fun getNewReleases(accessToken: String,
-                       countryCode: String?,
+    fun getNewReleases(countryCode: String?,
                        limit: Int?,
                        offset: Int?): Single<Paging<AlbumSimple>>
 
-    fun saveAlbums(accessToken: String,
-                   ids: String): Single<Response<Void>>
+    fun getMyTracks(limit: Int?,
+                    offset: Int?): Single<Paging<SavedTrack>>
 
-    fun getMyAlbums(accessToken: String): Single<Paging<SavedAlbum>>
+    fun saveAlbums(ids: String): Single<Response<Void>>
 
-    fun deleteMyAlbums(accessToken: String,
-                       ids: String): Single<Response<Void>>
+    fun getMyAlbums(limit: Int?,
+                    offset: Int?): Single<Paging<SavedAlbum>>
 
-    fun checkMyAlbumsContainsAlbums(accessToken: String,
-                                    ids: String): Single<Boolean>
+    fun deleteMyAlbums(ids: String): Single<Response<Void>>
 
-    fun getFollowedArtists(accessToken: String,
-                           limit: Int?,
+    fun checkMyAlbumsContainsAlbums(ids: String): Single<Boolean>
+
+    fun getFollowedArtists(limit: Int?,
                            after: String?): Single<CursorPaging<Artist>>
 
-    fun followArtists(accessToken: String,
-                      commaSeparatedIDs: String): Single<Response<Void>>
+    fun followArtists(commaSeparatedIDs: String): Single<Response<Void>>
 
-    fun followUsers(accessToken: String,
-                    commaSeparatedIDs: String): Single<Response<Void>>
+    fun followUsers(commaSeparatedIDs: String): Single<Response<Void>>
 
-    fun unfollowArtists(accessToken: String,
-                        commaSeparatedIDs: String): Single<Response<Void>>
+    fun unfollowArtists(commaSeparatedIDs: String): Single<Response<Void>>
 
-    fun unfollowUsers(accessToken: String,
-                      commaSeparatedIDs: String): Single<Response<Void>>
+    fun unfollowUsers(commaSeparatedIDs: String): Single<Response<Void>>
 
-    fun checkFollowsArtists(accessToken: String,
-                            commaSeparatedIDs: String): Single<Boolean>
+    fun checkFollowsArtists(commaSeparatedIDs: String): Single<Boolean>
 
-    fun checkFollowsUsers(accessToken: String,
-                          commaSeparatedIDs: String): Single<Boolean>
+    fun checkFollowsUsers(commaSeparatedIDs: String): Single<Boolean>
 
-    fun getMyTopArtists(accessToken: String,
-                        limit: Int?,
+    fun getMyTopArtists(limit: Int?,
                         offset: Int?,
                         timeRange: String?): Single<Paging<Artist>>
 
-    fun getMyTopTracks(accessToken: String,
-                        limit: Int?,
+    fun getMyTopTracks(limit: Int?,
                         offset: Int?,
                         timeRange: String?): Single<Paging<Track>>
 
-    fun getRecentlyPlayed(accessToken: String,
-                          limit: Int?): Single<CursorPaging<PlayHistory>>
+    fun getRecentlyPlayed(limit: Int?): Single<CursorPaging<PlayHistory>>
 
 }

@@ -30,12 +30,6 @@ class ApiModule {
 
     @Provides
     @AppScope
-    internal fun provideDataSource(remote: Remote): Api {
-        return Api(remote)
-    }
-
-    @Provides
-    @AppScope
     internal fun provideRetrofit(client: OkHttpClient, moshi: MoshiConverterFactory): Retrofit {
         return Retrofit.Builder()
                 .baseUrl(BuildConfig.BASE_URL)

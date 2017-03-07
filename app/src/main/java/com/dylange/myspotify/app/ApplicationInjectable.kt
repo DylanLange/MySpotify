@@ -44,8 +44,8 @@ class ApplicationModule(val mApplication: SpotifyAnalysisApplication){
 
     @Provides
     @AppScope
-    internal fun provideDataSource(remote: Remote): Api {
-        return Api(remote)
+    internal fun provideDataSource(remote: Remote, prefs: SharedPreferences): Api {
+        return Api(remote, prefs)
     }
 
     @Provides
