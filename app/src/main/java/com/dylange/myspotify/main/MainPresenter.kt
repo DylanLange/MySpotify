@@ -36,8 +36,8 @@ class MainPresenter: MainContract.Presenter {
         }
     }
 
-    private fun getMyAlbums(accessToken: String){
-        mRepo.getMyAlbums(accessToken).subscribe {
+    private fun getMyAlbums(){
+        mRepo.getMyAlbums(null, null).subscribe {
             response ->
             for (album: SavedAlbum in response.items) {
                 Log.d("DYLAN", album.toString())
@@ -45,14 +45,14 @@ class MainPresenter: MainContract.Presenter {
         }
     }
 
-    private fun getAlbum(accessToken: String){
+    private fun getAlbum(){
         mRepo.getAlbum("1eK4nhdVZTpIzibRw7qWiw").subscribe {
             response ->
             Log.d("DYLAN", response.toString())
         }
     }
 
-    private fun getAlbums(accessToken: String){
+    private fun getAlbums(){
         mRepo.getAlbums("1eK4nhdVZTpIzibRw7qWiw,73h2unQGoSEL75TlZVl7Pb").subscribe {
             response ->
             Log.d("DYLAN", response.toString())

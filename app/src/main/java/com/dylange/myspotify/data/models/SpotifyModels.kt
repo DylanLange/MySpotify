@@ -259,7 +259,7 @@ data class TrackSimple(
  */
 data class Track(
                                     val album: AlbumSimple,
-                                    val artists: ArtistSimple,//The artists who performed the track. Each artist object includes a link in href to more detailed information about the artist.
+                                    val artists: List<ArtistSimple>,//The artists who performed the track. Each artist object includes a link in href to more detailed information about the artist.
         @Json(name="available_markets") val availableMarkets: List<String>,//A list of the countries in which the track can be played, identified by their ISO 3166-1 alpha-2 code.
         @Json(name="disc_number")   val discNumber: Int,    //The disc number (usually 1 unless the album consists of more than one disc).
         @Json(name="duration_ms")   val duration: Int,      //The track length in milliseconds.

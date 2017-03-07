@@ -1,16 +1,16 @@
 package com.dylange.myspotify.main.tracks
 
 import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.dylange.myspotify.R
 import com.dylange.myspotify.app.SpotifyAnalysisApplication
 import com.dylange.myspotify.base.BaseFragment
-import com.imangazaliev.circlemenu.CircleMenu
-import com.imangazaliev.circlemenu.CircleMenuButton
-import com.mcxiaoke.koi.ext.onClick
-import kotlinx.android.synthetic.main.activity_main.*
+import com.dylange.myspotify.data.models.Paging
+import com.dylange.myspotify.data.models.SavedTrack
+import kotlinx.android.synthetic.main.fragment_tracks.*
 import javax.inject.Inject
 
 /**
@@ -44,5 +44,10 @@ class TracksFragment : BaseFragment(), TracksContract.View {
                 .inject(this)
     }
 
+    override fun setAdapter(tracksPage: Paging<SavedTrack>) {
+        recycler_view.layoutManager = LinearLayoutManager(activity)
+        recycler_view.adapter = TracksRecyclerAdapter(context, tracksPage)
+        recycler_view.adapter.notifyDataSetChanged()
+    }
 
 }
