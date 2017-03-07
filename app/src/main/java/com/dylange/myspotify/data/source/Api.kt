@@ -72,67 +72,67 @@ class Api : ApiContract {
     }
 
     override fun getNewReleases(countryCode: String?, limit: Int?, offset: Int?): Single<Paging<AlbumSimple>> {
-        return createDefaultSubscription(mRemote.getNewReleases(getAccessToken(), countryCode, limit, offset))
+        return createDefaultSubscription(mRemote.getNewReleases("Bearer " + getAccessToken(), countryCode, limit, offset))
     }
 
     override fun getMyTracks(limit: Int?, offset: Int?): Single<Paging<SavedTrack>> {
-        return createDefaultSubscription(mRemote.getMyTracks(getAccessToken(), limit, offset))
+        return createDefaultSubscription(mRemote.getMyTracks("Bearer " + getAccessToken(), limit, offset))
     }
 
     override fun saveAlbums(ids: String): Single<Response<Void>> {
-        return createDefaultSubscription(mRemote.saveAlbums(getAccessToken(), ids))
+        return createDefaultSubscription(mRemote.saveAlbums("Bearer " + getAccessToken(), ids))
     }
 
     override fun getMyAlbums(limit: Int?, offset: Int?): Single<Paging<SavedAlbum>> {
-        return createDefaultSubscription(mRemote.getMyAlbums(getAccessToken(), limit, offset))
+        return createDefaultSubscription(mRemote.getMyAlbums("Bearer " + getAccessToken(), limit, offset))
     }
 
     override fun deleteMyAlbums(ids: String): Single<Response<Void>> {
-        return createDefaultSubscription(mRemote.deleteMyAlbums(getAccessToken(), ids))
+        return createDefaultSubscription(mRemote.deleteMyAlbums("Bearer " + getAccessToken(), ids))
     }
 
     override fun checkMyAlbumsContainsAlbums(ids: String): Single<Boolean> {
-        return createDefaultSubscription(mRemote.checkMyAlbumsContainsAlbums(getAccessToken(), ids))
+        return createDefaultSubscription(mRemote.checkMyAlbumsContainsAlbums("Bearer " + getAccessToken(), ids))
     }
 
     override fun getFollowedArtists(limit: Int?, after: String?): Single<CursorPaging<Artist>> {
-        return createDefaultSubscription(mRemote.getFollowedArtists(getAccessToken(), limit, after))
+        return createDefaultSubscription(mRemote.getFollowedArtists("Bearer " + getAccessToken(), limit, after))
     }
 
     override fun followArtists(commaSeparatedIDs: String): Single<Response<Void>> {
-        return createDefaultSubscription(mRemote.followArtists(getAccessToken(), commaSeparatedIDs))
+        return createDefaultSubscription(mRemote.followArtists("Bearer " + getAccessToken(), commaSeparatedIDs))
     }
 
     override fun followUsers(commaSeparatedIDs: String): Single<Response<Void>> {
-        return createDefaultSubscription(mRemote.followUsers(getAccessToken(), commaSeparatedIDs))
+        return createDefaultSubscription(mRemote.followUsers("Bearer " + getAccessToken(), commaSeparatedIDs))
     }
 
     override fun unfollowArtists(commaSeparatedIDs: String): Single<Response<Void>> {
-        return createDefaultSubscription(mRemote.unfollowArtists(getAccessToken(), commaSeparatedIDs))
+        return createDefaultSubscription(mRemote.unfollowArtists("Bearer " + getAccessToken(), commaSeparatedIDs))
     }
 
     override fun unfollowUsers(commaSeparatedIDs: String): Single<Response<Void>> {
-        return createDefaultSubscription(mRemote.unfollowUsers(getAccessToken(), commaSeparatedIDs))
+        return createDefaultSubscription(mRemote.unfollowUsers("Bearer " + getAccessToken(), commaSeparatedIDs))
     }
 
     override fun checkFollowsArtists(commaSeparatedIDs: String): Single<Boolean> {
-        return createDefaultSubscription(mRemote.checkFollowsArtists(getAccessToken(), commaSeparatedIDs))
+        return createDefaultSubscription(mRemote.checkFollowsArtists("Bearer " + getAccessToken(), commaSeparatedIDs))
     }
 
     override fun checkFollowsUsers(commaSeparatedIDs: String): Single<Boolean> {
-        return createDefaultSubscription(mRemote.checkFollowsUsers(getAccessToken(), commaSeparatedIDs))
+        return createDefaultSubscription(mRemote.checkFollowsUsers("Bearer " + getAccessToken(), commaSeparatedIDs))
     }
 
     override fun getMyTopArtists(limit: Int?, offset: Int?, timeRange: String?): Single<Paging<Artist>> {
-        return createDefaultSubscription(mRemote.getMyTopArtists(getAccessToken(), limit, offset, timeRange))
+        return createDefaultSubscription(mRemote.getMyTopArtists("Bearer " + getAccessToken(), limit, offset, timeRange))
     }
 
     override fun getMyTopTracks(limit: Int?, offset: Int?, timeRange: String?): Single<Paging<Track>> {
-        return createDefaultSubscription(mRemote.getMyTopTracks(getAccessToken(), limit, offset, timeRange))
+        return createDefaultSubscription(mRemote.getMyTopTracks("Bearer " + getAccessToken(), limit, offset, timeRange))
     }
 
     override fun getRecentlyPlayed(limit: Int?): Single<CursorPaging<PlayHistory>> {
-        return createDefaultSubscription(mRemote.getRecentlyPlayed(getAccessToken(), limit))
+        return createDefaultSubscription(mRemote.getRecentlyPlayed("Bearer " + getAccessToken(), limit))
     }
 
     fun <T> createDefaultSubscription(thing : Single<T>) : Single<T> = thing

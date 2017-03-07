@@ -14,7 +14,10 @@ import com.mcxiaoke.koi.ext.startActivity
 import com.spotify.sdk.android.authentication.AuthenticationClient
 import com.spotify.sdk.android.authentication.AuthenticationRequest
 import com.spotify.sdk.android.authentication.AuthenticationResponse
-import com.spotify.sdk.android.player.*
+import com.spotify.sdk.android.player.ConnectionStateCallback
+import com.spotify.sdk.android.player.Error
+import com.spotify.sdk.android.player.Player
+import com.spotify.sdk.android.player.PlayerEvent
 import kotlinx.android.synthetic.main.activity_login.*
 import javax.inject.Inject
 
@@ -57,21 +60,7 @@ class LoginActivity: BaseActivity(), LoginContract.View, Player.NotificationCall
         if(requestCode == REQUEST_CODE){
             var response: AuthenticationResponse = AuthenticationClient.getResponse(resultCode, data)
             if(response.type == AuthenticationResponse.Type.TOKEN) {
-                saveTokenToSharedPrefs("Bearer " + response.accessToken)
-                var playerConfig: Config = Config(this, response.accessToken, BuildConfig.SPOTIFY_CLIENT_ID)
-
-//                mPlayer = Spotify.getPlayer(playerConfig, this, object : SpotifyPlayer.InitializationObserver {
-//                    override fun onInitialized(spotifyPlayer: SpotifyPlayer) {
-////                        mPlayer = spotifyPlayer
-////                        mPlayer.addConnectionStateCallback(this@LoginActivity)
-////                        mPlayer.addNotificationCallback(this@LoginActivity)
-//                    }
-//
-//                    override fun onError(throwable: Throwable) {
-//                        Log.e("MainActivity", "Could not initialize player: " + throwable.message)
-//                    }
-//                })
-
+                saveTokenToSharedPrefs(response.accessToken)
                 mPresenter.loginSuccessful()
             }
         }
@@ -104,7 +93,7 @@ class LoginActivity: BaseActivity(), LoginContract.View, Player.NotificationCall
                 BuildConfig.SPOTIFY_CLIENT_ID,
                 AuthenticationResponse.Type.TOKEN,
                 BuildConfig.SPOTIFY_REDIRECT_URI)
-                .setScopes(arrayOf("playlist-read-collaborative", "playlist-read-private", "user-library-read", "streaming"))
+                .setScopes(arrayOf("playlist-read-collaborative", "playlist-read-private", "user-library-read", "user-read-private", "streaming"))
 
         var request: AuthenticationRequest = builder.build()
         AuthenticationClient.openLoginActivity(this, REQUEST_CODE, request)
