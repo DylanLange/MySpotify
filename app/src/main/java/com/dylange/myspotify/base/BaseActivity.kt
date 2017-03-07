@@ -10,6 +10,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import com.mcxiaoke.koi.ext.getApp
+import com.spotify.sdk.android.player.SpotifyPlayer
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
@@ -22,7 +23,6 @@ abstract class BaseActivity: AppCompatActivity(), BaseContract.BaseView {
     }
 
     lateinit var mProgressDialog: ProgressDialog
-    //lateinit var mPlayer: SpotifyPlayer
 
     abstract fun setupActivityComponent()
 
@@ -33,11 +33,6 @@ abstract class BaseActivity: AppCompatActivity(), BaseContract.BaseView {
         mProgressDialog = ProgressDialog(this)
         mProgressDialog.setCancelable(false)
         mProgressDialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-    }
-
-    override fun onDestroy() {
-        //if(mPlayer != null) mPlayer.destroy()
-        super.onDestroy()
     }
 
     override fun showAlertDialog(title : String){

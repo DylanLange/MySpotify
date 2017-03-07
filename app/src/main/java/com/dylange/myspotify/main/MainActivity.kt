@@ -9,7 +9,9 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
 import android.support.v4.view.ViewPager
+import android.util.Log
 import android.view.ViewGroup
+import com.dylange.myspotify.BuildConfig
 import com.dylange.myspotify.R
 import com.dylange.myspotify.app.SpotifyAnalysisApplication
 import com.dylange.myspotify.base.BaseActivity
@@ -20,6 +22,9 @@ import com.dylange.myspotify.main.tracks.TracksFragment
 import com.imangazaliev.circlemenu.CircleMenu
 import com.imangazaliev.circlemenu.CircleMenuButton
 import com.mcxiaoke.koi.ext.onClick
+import com.spotify.sdk.android.player.Config
+import com.spotify.sdk.android.player.Spotify
+import com.spotify.sdk.android.player.SpotifyPlayer
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
@@ -33,6 +38,8 @@ class MainActivity: BaseActivity(), MainContract.View {
 
     @Inject
     lateinit var mPrefs: SharedPreferences
+
+    lateinit var mPlayer: SpotifyPlayer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,6 +66,24 @@ class MainActivity: BaseActivity(), MainContract.View {
                 mPresenter.circleMenuItemClicked(menuButton)
             }
         })
+
+        var playerConfig: Config = Config(this, mPrefs.getString(BaseActivity.AUTH_TOKEN_PREFS_KEY, ""), BuildConfig.SPOTIFY_CLIENT_ID)
+        mPlayer = Spotify.getPlayer(playerConfig, this, object : SpotifyPlayer.InitializationObserver {
+            override fun onInitialized(spotifyPlayer: SpotifyPlayer) {
+//                mPlayer = spotifyPlayer
+//                mPlayer.addConnectionStateCallback(this@LoginActivity)
+//                mPlayer.addNotificationCallback(this@LoginActivity)
+            }
+
+            override fun onError(throwable: Throwable) {
+                Log.e("MainActivity", "Could not initialize player: " + throwable.message)
+            }
+        })
+    }
+
+    override fun onDestroy() {
+        if(mPlayer != null) mPlayer.destroy()
+        super.onDestroy()
     }
 
     override fun setupActivityComponent() {
