@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.dylange.myspotify.data.models.Paging
 import com.dylange.myspotify.data.models.SavedTrack
+import com.dylange.myspotify.data.models.Track
 
 /**
  * Created by Dylan on 07-Mar-17.
@@ -19,7 +20,12 @@ class TracksRecyclerAdapter(var mContext: Context, var mTracks: Paging<SavedTrac
 
     override fun onBindViewHolder(holder: TracksRecyclerAdapter.ViewHolder?, position: Int) {
         var trackView: TrackView = holder!!.itemView as TrackView
-        trackView.setTrackName(mTracks.items[position].track.name)
+
+        var track: Track = mTracks.items[position].track
+        trackView.setTrackName(track.name)
+        trackView.setAlbumName(track.album.name)
+        trackView.setDuration(track.duration)
+        trackView.loadAlbumImage(track.album.images[0].url!!)
     }
 
     override fun getItemCount(): Int =  mTracks.items.size

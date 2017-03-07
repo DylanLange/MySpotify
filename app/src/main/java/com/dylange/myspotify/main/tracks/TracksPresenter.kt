@@ -17,8 +17,10 @@ class TracksPresenter : TracksContract.Presenter{
 	}
 
 	override fun start(){
+		mView.showProgressDialog()
 		mRepo.getMyTracks(null, null).subscribe {
 			success -> mView.setAdapter(success)
+			mView.hideProgressDialog()
 		}
 	}
 }

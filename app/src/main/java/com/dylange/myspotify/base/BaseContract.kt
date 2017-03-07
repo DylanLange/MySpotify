@@ -1,7 +1,5 @@
 package com.dylange.myspotify.base
 
-import com.imangazaliev.circlemenu.CircleMenuButton
-
 /**
  * Created by Dylan on 28-Feb-17.
  */
@@ -12,6 +10,8 @@ interface BaseContract {
         fun fadeOutCircleMenu()
         fun hideFab()
         fun showFab()
+        fun showProgressDialog()
+        fun hideProgressDialog()
     }
     interface BasePresenter {
         fun start()

@@ -60,4 +60,16 @@ abstract class BaseFragment: Fragment(), BaseContract.BaseView{
 	override fun hideFab() {
 		fab.hide()
 	}
+
+	override fun showProgressDialog(){
+		if(activity is BaseContract.BaseView) {
+			(activity as BaseContract.BaseView).showProgressDialog()
+		}
+	}
+
+	override fun hideProgressDialog(){
+		if(activity is BaseContract.BaseView) {
+			(activity as BaseContract.BaseView).hideProgressDialog()
+		}
+	}
 }

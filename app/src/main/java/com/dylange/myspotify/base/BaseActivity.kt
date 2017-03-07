@@ -2,7 +2,10 @@ package com.dylange.myspotify.base
 
 import android.animation.ValueAnimator
 import android.app.AlertDialog
+import android.app.ProgressDialog
 import android.content.DialogInterface
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
@@ -18,6 +21,7 @@ abstract class BaseActivity: AppCompatActivity(), BaseContract.BaseView {
         @JvmStatic val AUTH_TOKEN_PREFS_KEY = "_AUTH_TOKEN_PREFS_KEY"
     }
 
+    lateinit var mProgressDialog: ProgressDialog
     //lateinit var mPlayer: SpotifyPlayer
 
     abstract fun setupActivityComponent()
@@ -25,6 +29,10 @@ abstract class BaseActivity: AppCompatActivity(), BaseContract.BaseView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setupActivityComponent()
+
+        mProgressDialog = ProgressDialog(this)
+        mProgressDialog.setCancelable(false)
+        mProgressDialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
     }
 
     override fun onDestroy() {
@@ -71,6 +79,16 @@ abstract class BaseActivity: AppCompatActivity(), BaseContract.BaseView {
 
     override fun hideFab() {
         fab.hide()
+    }
+
+    override fun showProgressDialog(){
+        mProgressDialog.show()
+    }
+
+    override fun hideProgressDialog(){
+        if(mProgressDialog.isShowing){
+            mProgressDialog.dismiss()
+        }
     }
 
 }

@@ -1,17 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/black">
 
-    <TextView
-        android:id="@+id/track_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/padding_12dp"
-        tools:text="Just Like Heaven"
-        android:textColor="@color/white"/>
+    <ImageView
+        android:id="@+id/iv_album_image"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_centerVertical="true" />
 
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/iv_album_image"
+        android:layout_toLeftOf="@+id/btn_play"
+        android:paddingStart="@dimen/padding_12dp"
+        android:paddingEnd="@dimen/padding_12dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_track_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/padding_12dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_16sp"
+            tools:text="Just Like Heaven"/>
+
+        <TextView
+            android:id="@+id/tv_album_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/padding_12dp"
+            android:paddingStart="@dimen/padding_12dp"
+            android:paddingEnd="@dimen/padding_12dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_12sp"
+            tools:text="Album Name"/>
+
+        <TextView
+            android:id="@+id/tv_track_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/padding_12dp"
+            android:paddingEnd="@dimen/padding_12dp"
+            android:textColor="@color/green"
+            android:textSize="@dimen/text_8sp"
+            tools:text="3:03"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/btn_play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/padding_24dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/btn_play_custom"/>
+
+</RelativeLayout>
