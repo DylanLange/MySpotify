@@ -1,6 +1,7 @@
 package com.dylange.myspotify.main
 
 import com.dylange.myspotify.base.BaseContract
+import com.dylange.myspotify.data.models.Track
 import com.imangazaliev.circlemenu.CircleMenuButton
 
 /**
@@ -9,6 +10,7 @@ import com.imangazaliev.circlemenu.CircleMenuButton
 interface MainContract {
     interface View : BaseContract.BaseView {
         fun setupTabs()
+        fun playTrack(track: Track)
     }
     interface Presenter: BaseContract.BasePresenter {
         fun btnClicked()

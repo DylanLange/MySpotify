@@ -10,6 +10,8 @@ import com.dylange.myspotify.app.SpotifyAnalysisApplication
 import com.dylange.myspotify.base.BaseFragment
 import com.dylange.myspotify.data.models.Paging
 import com.dylange.myspotify.data.models.SavedTrack
+import com.dylange.myspotify.data.models.Track
+import com.dylange.myspotify.main.MainContract
 import kotlinx.android.synthetic.main.fragment_tracks.*
 import javax.inject.Inject
 
@@ -17,7 +19,7 @@ import javax.inject.Inject
  * Created by dylanlange on 2/02/17.
  */
 
-class TracksFragment : BaseFragment(), TracksContract.View {
+class TracksFragment : BaseFragment(), TracksContract.View{
 
     companion object {
         @JvmStatic fun newInstance() = TracksFragment()
@@ -46,8 +48,12 @@ class TracksFragment : BaseFragment(), TracksContract.View {
 
     override fun setAdapter(tracksPage: Paging<SavedTrack>) {
         recycler_view.layoutManager = LinearLayoutManager(activity)
-        recycler_view.adapter = TracksRecyclerAdapter(context, tracksPage)
+        recycler_view.adapter = TracksRecyclerAdapter(context, tracksPage, mPresenter)
         recycler_view.adapter.notifyDataSetChanged()
+    }
+
+    override fun playTrack(track: Track) {
+        (activity as MainContract.View).playTrack(track)
     }
 
 }

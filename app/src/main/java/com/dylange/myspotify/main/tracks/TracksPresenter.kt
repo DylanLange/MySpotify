@@ -1,12 +1,13 @@
 package com.dylange.myspotify.main.tracks
 
+import com.dylange.myspotify.data.models.Track
 import com.dylange.myspotify.data.source.Api
 import javax.inject.Inject
 
 /**
  * Created by Dylan on 04-Mar-17.
  */
-class TracksPresenter : TracksContract.Presenter{
+class TracksPresenter : TracksContract.Presenter, TracksRecyclerAdapter.TrackClickedCallback{
 
 	var mView : TracksContract.View
 	var mRepo: Api
@@ -22,5 +23,9 @@ class TracksPresenter : TracksContract.Presenter{
 			success -> mView.setAdapter(success)
 			mView.hideProgressDialog()
 		}
+	}
+
+	override fun trackClicked(track: Track) {
+		mView.playTrack(track)
 	}
 }

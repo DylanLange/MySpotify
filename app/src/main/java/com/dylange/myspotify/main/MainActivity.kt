@@ -15,6 +15,7 @@ import com.dylange.myspotify.BuildConfig
 import com.dylange.myspotify.R
 import com.dylange.myspotify.app.SpotifyAnalysisApplication
 import com.dylange.myspotify.base.BaseActivity
+import com.dylange.myspotify.data.models.Track
 import com.dylange.myspotify.main.albums.AlbumsFragment
 import com.dylange.myspotify.main.artists.ArtistsFragment
 import com.dylange.myspotify.main.playlists.PlaylistsFragment
@@ -22,9 +23,7 @@ import com.dylange.myspotify.main.tracks.TracksFragment
 import com.imangazaliev.circlemenu.CircleMenu
 import com.imangazaliev.circlemenu.CircleMenuButton
 import com.mcxiaoke.koi.ext.onClick
-import com.spotify.sdk.android.player.Config
-import com.spotify.sdk.android.player.Spotify
-import com.spotify.sdk.android.player.SpotifyPlayer
+import com.spotify.sdk.android.player.*
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
@@ -67,18 +66,20 @@ class MainActivity: BaseActivity(), MainContract.View {
             }
         })
 
-        var playerConfig: Config = Config(this, mPrefs.getString(BaseActivity.AUTH_TOKEN_PREFS_KEY, ""), BuildConfig.SPOTIFY_CLIENT_ID)
+        var accessToken: String = mPrefs.getString(BaseActivity.AUTH_TOKEN_PREFS_KEY, "")
+        var playerConfig: Config = Config(this, "" + accessToken, BuildConfig.SPOTIFY_CLIENT_ID)
         mPlayer = Spotify.getPlayer(playerConfig, this, object : SpotifyPlayer.InitializationObserver {
             override fun onInitialized(spotifyPlayer: SpotifyPlayer) {
 //                mPlayer = spotifyPlayer
-//                mPlayer.addConnectionStateCallback(this@LoginActivity)
-//                mPlayer.addNotificationCallback(this@LoginActivity)
+//                mPlayer.addConnectionStateCallback(this@MainActivity)
+//                mPlayer.addNotificationCallback(this@MainActivity)
             }
 
             override fun onError(throwable: Throwable) {
                 Log.e("MainActivity", "Could not initialize player: " + throwable.message)
             }
         })
+        mPlayer.login(accessToken)
     }
 
     override fun onDestroy() {
@@ -108,6 +109,18 @@ class MainActivity: BaseActivity(), MainContract.View {
                             dialog.dismiss()
                         })
         builder.create().show()
+    }
+
+    override fun playTrack(track: Track) {
+        mPlayer.playUri(object: Player.OperationCallback {
+            override fun onSuccess() {
+                Log.d("", "")
+            }
+
+            override fun onError(p0: Error?) {
+                Log.d("", "")
+            }
+        }, track.uri, 0, 0);
     }
 
     override fun setupTabs() {

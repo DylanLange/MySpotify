@@ -11,7 +11,7 @@ import com.dylange.myspotify.data.models.Track
 /**
  * Created by Dylan on 07-Mar-17.
  */
-class TracksRecyclerAdapter(var mContext: Context, var mTracks: Paging<SavedTrack>): RecyclerView.Adapter<TracksRecyclerAdapter.ViewHolder>(){
+class TracksRecyclerAdapter(var mContext: Context, var mTracks: Paging<SavedTrack>, var callback: TrackClickedCallback): RecyclerView.Adapter<TracksRecyclerAdapter.ViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): TracksRecyclerAdapter.ViewHolder {
         var view: TrackView = TrackView(mContext)
@@ -26,10 +26,18 @@ class TracksRecyclerAdapter(var mContext: Context, var mTracks: Paging<SavedTrac
         trackView.setAlbumName(track.album.name)
         trackView.setDuration(track.duration)
         trackView.loadAlbumImage(track.album.images[0].url!!)
+
+        trackView.setOnClickListener {
+            callback.trackClicked(track)
+        }
     }
 
     override fun getItemCount(): Int =  mTracks.items.size
 
     inner class ViewHolder(v: View) : RecyclerView.ViewHolder(v)
+
+    interface TrackClickedCallback {
+        fun trackClicked(track: Track)
+    }
 
 }
